@@ -16,7 +16,7 @@
   "scripts": {
     "start": "eggctl start --daemon --title=egg-server-hackernews-tegg",
     "stop": "eggctl stop --title=egg-server-hackernews-tegg",
-    "predev": "npm run clean",
+    "predev": "npm run clean && npm run db:migrate",
     "dev": "egg-bin dev",
     "test:local": "cross-env NODE_OPTIONS=\"--import @oxc-node/core/register\" vitest run",
     "pretest": "npm run clean && npm run lint -- --fix",
@@ -28,12 +28,23 @@
     "typecheck": "tsgo --noEmit",
     "build": "tsc",
     "clean": "tsc -b --clean",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
+    "db:push": "npx prisma db push",
+    "db:studio": "npx prisma studio"
   },
   "dependencies": {
     "@eggjs/scripts": "beta",
     "@eggjs/tracer": "beta",
-    "egg": "beta"
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0",
+    "class-transformer": "^0.5.1",
+    "dotenv": "^17.4.2",
+    "egg": "beta",
+    "egg-validate": "^2.0.2",
+    "pg": "^8.20.0",
+    "prisma": "^7.7.0"
   },
   "devDependencies": {
     "@eggjs/bin": "beta",
@@ -50,6 +61,5 @@
   },
   "engines": {
     "node": ">=22.18.0"
-  },
-  "packageManager": "npm@10.9.3"
+  }
 }

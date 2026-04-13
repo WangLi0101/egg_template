@@ -6,12 +6,17 @@ export default defineConfigFactory((appInfo) => {
     keys: appInfo.name + '_{{keys}}',
 
     // add your egg config in here
-    middleware: [] as string[],
+    middleware: ['responseWrapper'] as string[],
 
     // change multipart mode to file
     // @see https://github.com/eggjs/multipart/blob/master/src/config/config.default.ts#L104
     multipart: {
       mode: 'file' as const,
+    },
+
+    // 关闭 CSRF（开发环境）
+    security: {
+      csrf: { enable: false },
     },
   } as PartialEggConfig;
 
