@@ -7,23 +7,23 @@
 ### Development
 
 ```bash
-npm i
-npm run dev
+pnpm i
+pnpm run dev
 open http://localhost:7001/
 ```
 
 ### Deploy
 
 ```bash
-npm run build
-npm start
+pnpm run build
+pnpm start
 ```
 
-### Npm Scripts
+### pnpm Scripts
 
-- Use `npm run lint` to check code style
-- Use `npm test` to run unit test
-- se `npm run clean` to clean compiled js at development mode once
+- Use `pnpm run lint` to check code style
+- Use `pnpm test` to run unit test
+- se `pnpm run clean` to clean compiled js at development mode once
 
 ### Requirement
 
