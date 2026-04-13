@@ -21,3 +21,5 @@ config/**/*.map
 .package-lock.json
 .egg/
 /app/generated/prisma
+
+.env
