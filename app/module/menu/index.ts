@@ -1,0 +1,1 @@
+export { MenuService } from "./service/menu.ts";

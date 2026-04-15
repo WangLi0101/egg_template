@@ -1,6 +1,6 @@
 import { Expose } from "class-transformer";
 
-export class UserVO {
+export class RegisterVO {
   @Expose()
   id: number;
 
@@ -17,16 +17,24 @@ export class UserVO {
   nickname?: string;
 
   @Expose()
-  avatar?: string;
-
-  @Expose()
-  status: number;
-
-  @Expose()
   createdAt: Date;
 }
 
-export class UserDetailVO {
+export class LoginVO {
+  @Expose()
+  token: string;
+
+  @Expose()
+  user: {
+    id: number;
+    username: string;
+    nickname?: string;
+    avatar?: string;
+    roles: string[];
+  };
+}
+
+export class UserInfoVO {
   @Expose()
   id: number;
 
@@ -53,12 +61,4 @@ export class UserDetailVO {
 
   @Expose()
   roles: string[];
-}
-
-export class UserListVO {
-  @Expose()
-  list: UserVO[];
-
-  @Expose()
-  total: number;
 }

@@ -1,0 +1,7 @@
+{
+  "name": "auth",
+  "type": "module",
+  "eggModule": {
+    "name": "auth"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "permission",
+  "type": "module",
+  "eggModule": {
+    "name": "permission"
+  }
+}

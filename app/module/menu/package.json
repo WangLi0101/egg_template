@@ -1,0 +1,7 @@
+{
+  "name": "menu",
+  "type": "module",
+  "eggModule": {
+    "name": "menu"
+  }
+}

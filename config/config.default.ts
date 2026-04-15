@@ -2,31 +2,28 @@ import { defineConfigFactory, type PartialEggConfig } from 'egg';
 
 export default defineConfigFactory((appInfo) => {
   const config = {
-    // use for cookie sign key, should change to your own and keep security
     keys: appInfo.name + '_{{keys}}',
 
-    // add your egg config in here
     middleware: ['responseWrapper'] as string[],
 
-    // change multipart mode to file
-    // @see https://github.com/eggjs/multipart/blob/master/src/config/config.default.ts#L104
     multipart: {
       mode: 'file' as const,
     },
 
-    // 关闭 CSRF（开发环境）
     security: {
       csrf: { enable: false },
     },
+
+    jwt: {
+      secret: 'your-jwt-secret-key-change-in-production',
+      expiresIn: '7d',
+    },
   } as PartialEggConfig;
 
-  // add your special config in here
-  // Usage: `app.config.bizConfig.sourceUrl`
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
-  // the return config will combines to EggAppConfig
   return {
     ...config,
     bizConfig,
